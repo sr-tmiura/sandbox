@@ -1,0 +1,262 @@
+﻿@{
+	ViewData["Title"] = "Grid Sample";
+}
+@section HeaderSection{
+	<link rel="stylesheet" href="~/lib/ag-grid/styles/ag-grid.css" />
+	<link rel="stylesheet" href="~/css/home/style.css" />
+}
+@section Scripts{
+	<script src="~/lib/ag-grid/ag-grid-community.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			alert("aa");
+		});
+	</script>
+}
+<div class="header">
+	<div class="search top_search">
+		<div>
+			<img src="~/images/image300.png" asp-append-version="true">
+			<select name="company">
+				<option value="0" selected>会社名</option>
+				<option value="1">SR</option>
+			</select>
+		</div>
+		<div>
+			<img src="~/images/image298.png" asp-append-version="true">
+			<select name="bumon">
+				<option value="0" selected>部門名</option>
+				<option value="1">自動車システム</option>
+			</select>
+		</div>
+		<div>
+			<img src="~/images/image307.png" asp-append-version="true">
+			<select name="name">
+				<option value="0" selected>入力者</option>
+				<option value="1">山田太郎</option>
+			</select>
+		</div>
+		<div>
+			<img src="~/images/image309.png" asp-append-version="true">
+			<select name="paper">
+				<option value="0" selected>書類</option>
+				<option value="1">見積書</option>
+			</select>
+		</div>
+	</div>
+	<p>
+
+	<div class="search center_search">
+		<img src="~/images/image422.png" asp-append-version="true">
+		<input type="search" neme="message">
+	</div>
+
+	<div class="search bottom_search">
+
+		<img src="~/images/image312.png" asp-append-version="true">
+		<input type="text" neme="message">
+
+		<img src="~/images/image280.png" asp-append-version="true">
+		<input type="text" neme="message">
+
+		<img src="~/images/image314.png" asp-append-version="true">
+		<select name="nyuuryoku">
+			<option value="0" selected>取引日、入力日</option>
+			<option value="1">2022/10/10</option>
+		</select>
+
+		<input type="date" neme="message" class="icon_del">
+		<img src="~/images/image285.png" asp-append-version="true">
+		～
+		<input type="date" neme="message" class="icon_del">
+		<img src="~/images/image285.png" asp-append-version="true">
+	</div>
+</div>
+<div class="result">
+	<table id="example" class="display" style="width:100%;">
+		<thead>
+			<tr>
+				<th><img src="~/images/image422.png" asp-append-version="true" width="20" height="20"></th>
+				<th>添付ファイル</th>
+				<th>取引日</th>
+				<th>取引先</th>
+				<th>契約名称</th>
+				<th>書類</th>
+				<th>取引金額</th>
+				<th>入力者</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="checkbox" name="check" value="1"></td>
+				<td><a href="a.html">1XXXX.PDF</a></td>
+				<td>22/01/31</td>
+				<td>t000906<br>国税商店(株)</td>
+				<td>010001<br>A商品×10</td>
+				<td>見積書</td>
+				<td><a class="right">200,000</a></td>
+				<td>山田太郎<br>22/8/5　10:01</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="2"></td>
+				<td><a href="a.html">2XXXX.PDF</a></td>
+				<td>22/10/11</td>
+				<td>SR</td>
+				<td>契約名def</td>
+				<td>納品書</td>
+				<td>11,244,500</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="3"></td>
+				<td><a href="a.html">3XXXX.PDF</a></td>
+				<td>22/10/12</td>
+				<td>SR</td>
+				<td>契約名ghi</td>
+				<td>請求書</td>
+				<td>0</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="4"></td>
+				<td><a href="a.html">4XXXX.PDF</a></td>
+				<td>22/10/13</td>
+				<td>SR</td>
+				<td>XXXXX</td>
+				<td>見積書</td>
+				<td>39,023,876</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="5"></td>
+				<td><a href="a.html">5XXXX.PDF</a></td>
+				<td>22/10/14</td>
+				<td>SR</td>
+				<td>123</td>
+				<td>請求書</td>
+				<td>12,345,678</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="6"></td>
+				<td><a href="a.html">6XXXX.PDF</a></td>
+				<td>22/10/15</td>
+				<td>SR</td>
+				<td>aaa</td>
+				<td>納品書</td>
+				<td>1,500,000,000</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="7"></td>
+				<td><a href="a.html">7XXXX.PDF</a></td>
+				<td>22/10/15</td>
+				<td>SR</td>
+				<td>aaa</td>
+				<td>納品書</td>
+				<td>1,500,000,000</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="8"></td>
+				<td><a href="a.html">8XXXX.PDF</a></td>
+				<td>22/10/15</td>
+				<td>SR</td>
+				<td>aaa</td>
+				<td>納品書</td>
+				<td>1,500,000,000</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="9"></td>
+				<td><a href="a.html">9XXXX.PDF</a></td>
+				<td>22/10/15</td>
+				<td>SR</td>
+				<td>aaa</td>
+				<td>納品書</td>
+				<td>1,500,000,000</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="10"></td>
+				<td><a href="a.html">10XXX.PDF</a></td>
+				<td>22/10/15</td>
+				<td>SR</td>
+				<td>aaa</td>
+				<td>納品書</td>
+				<td>1,500,000,000</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="11"></td>
+				<td><a href="a.html">11XXX.PDF</a></td>
+				<td>22/10/15</td>
+				<td>SR</td>
+				<td>aaa</td>
+				<td>納品書</td>
+				<td>1,500,000,000</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="12"></td>
+				<td><a href="a.html">12XXX.PDF</a></td>
+				<td>22/10/15</td>
+				<td>SR</td>
+				<td>aaa</td>
+				<td>納品書</td>
+				<td>1,500,000,000</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="13"></td>
+				<td><a href="a.html">13XXX.PDF</a></td>
+				<td>22/10/15</td>
+				<td>SR</td>
+				<td>aaa</td>
+				<td>納品書</td>
+				<td>1,500,000,000</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="13"></td>
+				<td><a href="a.html">13XXX.PDF</a></td>
+				<td>22/10/15</td>
+				<td>SR</td>
+				<td>aaa</td>
+				<td>納品書</td>
+				<td>1,500,000,000</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="13"></td>
+				<td><a href="a.html">13XXX.PDF</a></td>
+				<td>22/10/15</td>
+				<td>SR</td>
+				<td>aaa</td>
+				<td>納品書</td>
+				<td>1,500,000,000</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="13"></td>
+				<td><a href="a.html">13XXX.PDF</a></td>
+				<td>22/10/15</td>
+				<td>SR</td>
+				<td>aaa</td>
+				<td>納品書</td>
+				<td>1,500,000,000</td>
+				<td>山田太郎</td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="check" value="13"></td>
+				<td><a href="a.html">13XXX.PDF</a></td>
+				<td>22/10/15</td>
+				<td>SR</td>
+				<td>aaa</td>
+				<td>納品書</td>
+				<td>1,500,000,000</td>
+				<td>山田太郎</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

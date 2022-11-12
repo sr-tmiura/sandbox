@@ -1,0 +1,96 @@
+@charset"utf-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+html,
+body {
+	width: 100%;
+}
+
+.headerBar {
+	display: inline-block;
+	background-color: black;
+	width: 100%;
+	color: white;
+	height: 56px;
+}
+
+.headerBar div {
+	display: inline-block;
+}
+
+.headerBar .big_company {
+	min-width: 100px;
+	text-align: center;
+	margin: 0 auto;
+	font-size: large;
+}
+
+.headerBar .small_company {
+	min-width: 100px;
+	text-align: center;
+	margin: 0 auto;
+	font-size: x-small;
+}
+
+.header{
+	width: 94%;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.header div {
+	display: inline-block;
+}
+
+.header select {
+	height: 26px;
+}
+
+.header input {
+	height: 26px;
+}
+
+.search {
+	margin: 5px;
+	display: inline-block;
+	width: 100%;
+}
+
+.search img {
+	object-fit: cover;
+	width: 28px;
+	height: 24px;
+}
+
+.top_search div {
+	display: inline-block;
+	width: 20%;
+}
+
+.top_search select {
+	width: 80%;
+}
+
+.center_search input {
+	width: 40%;
+}
+
+.icon-del::-webkit-calendar-picker-indicator {
+	display: none;
+}
+
+.bottom_search div {
+	display: inline-block;
+}
+
+.result {
+	width: 94%;
+	min-height: 450px;
+	margin: 0px auto;
+	border:1px black dotted;
+	margin-top: 20px;
+}
