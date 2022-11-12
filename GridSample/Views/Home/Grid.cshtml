@@ -2,16 +2,8 @@
 	ViewData["Title"] = "Grid Sample";
 }
 @section HeaderSection{
-	<link rel="stylesheet" href="~/lib/ag-grid/styles/ag-grid.css" />
-	<link rel="stylesheet" href="~/css/home/style.css" />
-}
-@section Scripts{
-	<script src="~/lib/ag-grid/ag-grid-community.js"></script>
-	<script type="text/javascript">
-		$(function () {
-			alert("aa");
-		});
-	</script>
+		<link rel="stylesheet" href="~/lib/ag-grid/styles/ag-grid.css" />
+		<link rel="stylesheet" href="~/css/home/style.css" />
 }
 <div class="header">
 	<div class="search top_search">
@@ -45,10 +37,11 @@
 		</div>
 	</div>
 	<p>
-
 	<div class="search center_search">
-		<img src="~/images/image422.png" asp-append-version="true">
-		<input type="search" neme="message">
+		<div class="quickfilter">
+			<img src="~/images/image422.png" asp-append-version="true">
+			<input id="filter-text-box" type="search" neme="message" oninput="onFilterTextBoxChanged()"/>
+		</div>
 	</div>
 
 	<div class="search bottom_search">
@@ -72,7 +65,9 @@
 		<img src="~/images/image285.png" asp-append-version="true">
 	</div>
 </div>
+
 <div class="result">
+	<div id="myGrid" style="height: 600px;width:100%;" class="ag-theme-balham"></div>
 	<table id="example" class="display" style="width:100%;">
 		<thead>
 			<tr>
@@ -260,3 +255,63 @@
 		</tbody>
 	</table>
 </div>
+
+@section Scripts{
+	<script src="~/lib/ag-grid/ag-grid-community.js"></script>
+	<script type="text/javascript">
+		// specify the columns
+
+		var columnDefs = [
+			{
+				headerName: "Group A", children: 
+				[
+					{headerName: "添付ファイル", field: "file", filter: true, sortable: true, headerCheckboxSelection: true, headerCheckboxSelectionFilteredOnly: true, checkboxSelection: true },
+					{headerName: "取引日", field: "model", filter: true, sortable: true, cellStyle: {color: 'white', 'background-color': 'pink' }},
+					{headerName: "取引先", field: "target", filter: true},
+					{headerName: "契約名称", field: "contract", filter: true},
+					{headerName: "書類", field: "document", filter: true},
+					{headerName: "取引金額", field: "price", filter: true},
+					{headerName: "入力者", field: "input_user", filter: true},
+				]
+			},
+			{rowDrag: true}
+		];
+
+		// specify the data
+		var rowData = [
+		{file:"aaa", target: "Toyota", model: "Celica", price: 35000},
+		{file:"aaa", target: "Ford", model: "Mondeo", price: 32000},
+		{file:"aaa", target: "Porsche", model: "Boxter", price: 72000}
+		];
+
+		// let the grid know which columns and what data to use
+		var gridOptions = {
+		columnDefs: columnDefs,
+		rowData: rowData,
+		rowDragManaged: true,
+		animateRows: true        
+		};
+
+		// lookup the container we want the Grid to use
+		var eGridDiv = document.querySelector('#myGrid');
+
+		// create the grid passing in the div to use together with the columns & data we want to use
+		new agGrid.Grid(eGridDiv, gridOptions);
+
+		function onFilterTextBoxChanged() {
+			gridOptions.api.setQuickFilter(document.getElementById('filter-text-box').value);
+		}
+
+		gridOptions.api.sizeColumnsToFit();
+
+		// autoSizeAll();
+
+		function autoSizeAll() {
+			var allColumnIds = [];
+			gridOptions.columnApi.getAllColumns().forEach(function(column) {
+				allColumnIds.push(column.colId);
+			});
+			gridOptions.columnApi.autoSizeColumns(allColumnIds);
+		}
+	</script>
+}
